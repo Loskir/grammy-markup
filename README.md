@@ -6,7 +6,8 @@ This plugin provides [telegraf](https://telegraf.js.org)-like keyboard and inlin
 
 ## Motivation
 
-The official plugin provides an imperative API, which I don't really like. This plugin, on the other hand, provides declarative helper functions inspired by [telegraf](https://telegraf.js.org).
+The [official plugin](https://grammy.dev/plugins/keyboard.html) provides an imperative API, which I don't really like.
+This plugin, on the other hand, provides declarative helper functions inspired by [telegraf](https://telegraf.js.org).
 
 See the comparison:
 ```ts
