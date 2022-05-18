@@ -4,6 +4,46 @@ This plugin provides [telegraf](https://telegraf.js.org)-like keyboard and inlin
 
 > Note: This plugin is not stable yet.
 
+## Motivation
+
+The official plugin provides an imperative API, which I don't really like. This plugin, on the other hand, provides declarative helper functions inspired by [telegraf](https://telegraf.js.org).
+
+See the comparison:
+```ts
+new InlineKeyboard([
+  [IButton.text("Get random music", "random")],
+  [IButton.switchInline("Send music to friends")],
+])
+```
+vs
+```ts
+new InlineKeyboard()
+  .text("Get random music", "random").row()
+  .switchInline("Send music to friends")
+```
+
+The declarative approach is especially useful when you want to represent dynamic data in the menu (for example, obtained from the database):
+```ts
+const inlineKeyboard = new InlineKeyboard(items.map(
+  (item) => [IButton.text(item.name, item.id)
+))
+```
+vs
+```ts
+const inlineKeyboard = new InlineKeyboard()
+for (const item of items) {
+  inlineKeyboard.text(item.name, item.id).row()
+}
+```
+
+Also it's easy to use all sorts of array utilities with declarative builder, like `chunk`:
+```ts
+const inlineKeyboard = new InlineKeyboard(chunk(
+  items.map((item) => IButton.text(item.name, item.id))
+  3,
+))
+```
+
 ## Installation
 
 ### Yarn
