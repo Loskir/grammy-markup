@@ -1,16 +1,16 @@
 {
-  "name": "@grammyjs/plugin-template",
-  "version": "1.0.0",
-  "description": "A Simple Pluging Template For grammY",
-  "homepage": "https://grammy.dev/plugins/MYPLUGIN",
+  "name": "@loskir/grammy-markup",
+  "version": "0.1.0",
+  "description": "Markup plugin for grammY",
   "main": "./out/index.js",
   "type": "commonjs",
   "scripts": {
-    "build": "deno2node tsconfig.json"
+    "build": "deno2node tsconfig.json",
+    "publish:npm": "npm publish --access=public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Amir-Zouerami/plugin-template.git"
+    "url": "git+https://github.com/Loskir/grammy-markup.git"
   },
   "exports": {
     ".": "./out/index.js"
@@ -18,16 +18,17 @@
   "files": [
     "out/"
   ],
-  "author": "Amir Zouerami",
+  "author": "Kirill Loskutov",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Amir-Zouerami/plugin-template/issues"
+    "url": "https://github.com/Loskir/grammy-markup/issues"
   },
   "peerDependencies": {
-    "grammy": "^1.5.1"
+    "grammy": "^1.8.3"
   },
   "devDependencies": {
-    "deno2node": "~1.0.0"
+    "@grammyjs/types": "^2.7.1",
+    "deno2node": "^1.0.0"
   },
   "keywords": [
     "grammY",

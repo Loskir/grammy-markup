@@ -1,13 +1,83 @@
-# The Hitchhiker's Guide to grammY Plugins
+# Markup plugin for [grammY](https://grammy.dev)
 
-grammY is very extensible and it supports installing plugins. This repository is a template for developing such plugins.
+This plugin provides [telegraf](https://telegraf.js.org)-like keyboard and inline keyboard builders.
 
-⚠️ **For instructions on how to use this template please visit the [official docs](https://grammy.dev/plugins/guide.html).**
+> Note: This plugin is not stable yet.
 
-# Rules of Contribution
+## Installation
 
-Before diving into some hands-on examples, there are some notes to pay attention to if you would like your plugins to be submitted to the documentation:
+### Yarn
+```
+yarn add @loskir/grammy-markup
+```
+### NPM
+```
+npm i --save @loskir/grammy-markup
+```
 
-1. You should document your plugin (README with instructions).
-2. Explain the purpose of your plugin and how to use it by adding a page to the [docs](https://github.com/grammyjs/website).
-3. Choose a permissive license such as MIT or ISC.
+## Usage
+
+### Deno
+```ts
+import {
+    InlineKeyboard,
+    IButton,
+    Keyboard,
+    Button,
+} from "https://github.com/Loskir/grammy-markup/raw/main/src/index.ts"
+```
+
+### Typescript
+```ts
+import {
+    InlineKeyboard,
+    IButton,
+    Keyboard,
+    Button,
+} from "@loskir/grammy-markup"
+```
+
+### Javascript
+```js
+const {
+    InlineKeyboard,
+    IButton,
+    Keyboard,
+    Button,
+} = require("@loskir/grammy-markup")
+```
+
+## Examples
+
+### `InlineKeyboard` and `IButton`
+
+```ts
+const inlineKeyboard = new InlineKeyboard([
+    [IButton.text('text', 'callback_data')],
+    [IButton.url('text', 'https://grammy.dev')],
+    [IButton.webApp('text', 'https://grammy.dev?webApp')],
+    [IButton.login('text', 'https://grammy.dev?login')],
+    [
+        IButton.switchInline('text', 'query'),
+        IButton.switchInlineCurrent('text', 'query'),
+    ],
+    [IButton.game('text')],
+    [IButton.pay('text')],
+])
+// ctx.reply('inline keyboard', {reply_markup: inlineKeyboard})
+```
+### `Keyboard` and `Button`
+
+```ts
+const keyboard = new Keyboard([
+    [Button.text('text')],
+    [Button.requestContact('text')],
+    [Button.requestLocation('text')],
+    [Button.requestPoll('text', 'quiz')],
+    [Button.webApp('text', 'https://grammy.dev?webApp')],
+])
+// ctx.reply('keyboard', {reply_markup: keyboard})
+```
+
+> `one_time`, `resize`, `input_placeholder` and `selective` attributes are not supported out of the box.
+> Please refer to [official docs](https://grammy.dev/plugins/keyboard.html#sending-a-custom-keyboard)
