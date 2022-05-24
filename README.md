@@ -10,13 +10,16 @@ The [official plugin](https://grammy.dev/plugins/keyboard.html) provides an impe
 This plugin, on the other hand, provides declarative helper functions inspired by [telegraf](https://telegraf.js.org).
 
 See the comparison:
+
 ```ts
 new InlineKeyboard([
   [IButton.text("Get random music", "random")],
   [IButton.switchInline("Send music to friends")],
 ])
 ```
+
 vs
+
 ```ts
 new InlineKeyboard()
   .text("Get random music", "random").row()
@@ -24,12 +27,15 @@ new InlineKeyboard()
 ```
 
 The declarative approach is especially useful when you want to represent dynamic data in the menu (for example, obtained from the database):
+
 ```ts
 const inlineKeyboard = new InlineKeyboard(items.map(
   (item) => [IButton.text(item.name, item.id)
 ))
 ```
+
 vs
+
 ```ts
 const inlineKeyboard = new InlineKeyboard()
 for (const item of items) {
@@ -38,6 +44,7 @@ for (const item of items) {
 ```
 
 Also it's easy to use all sorts of array utilities with declarative builder, like `chunk`:
+
 ```ts
 const inlineKeyboard = new InlineKeyboard(chunk(
   items.map((item) => IButton.text(item.name, item.id))
@@ -48,17 +55,21 @@ const inlineKeyboard = new InlineKeyboard(chunk(
 ## Installation
 
 ### Yarn
-```
+
+```bash
 yarn add @loskir/grammy-markup
 ```
+
 ### NPM
-```
+
+```bash
 npm i --save @loskir/grammy-markup
 ```
 
 ## Usage
 
 ### Deno
+
 ```ts
 import {
     InlineKeyboard,
@@ -69,6 +80,7 @@ import {
 ```
 
 ### Typescript
+
 ```ts
 import {
     InlineKeyboard,
@@ -79,6 +91,7 @@ import {
 ```
 
 ### Javascript
+
 ```js
 const {
     InlineKeyboard,
@@ -107,6 +120,7 @@ const inlineKeyboard = new InlineKeyboard([
 ])
 // ctx.reply('inline keyboard', {reply_markup: inlineKeyboard})
 ```
+
 ### `Keyboard` and `Button`
 
 ```ts
