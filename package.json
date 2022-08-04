@@ -1,6 +1,6 @@
 {
   "name": "@loskir/grammy-markup",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Markup plugin for grammY",
   "main": "./out/index.js",
   "type": "commonjs",
@@ -24,10 +24,10 @@
     "url": "https://github.com/Loskir/grammy-markup/issues"
   },
   "peerDependencies": {
-    "grammy": "^1.8.3"
+    "grammy": ">=1.10 <2"
   },
   "devDependencies": {
-    "@grammyjs/types": "^2.7.1",
+    "@grammyjs/types": "^2.8.2",
     "deno2node": "^1.0.0"
   },
   "keywords": [

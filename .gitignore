@@ -22,3 +22,7 @@ package-lock.json
 
 # Build output
 out/
+
+.DS_Store
+
+yarn.lock

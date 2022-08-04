@@ -12,7 +12,8 @@
         "module": "commonjs",
         "outDir": "./out/",
         "skipLibCheck": true,
-        "target": "es2019"
+        "target": "es2019",
+        "moduleResolution": "node16"
     },
     "include": [
         "src/"
