@@ -72,9 +72,7 @@ npm i --save @loskir/grammy-markup
 
 ```ts
 import {
-    InlineKeyboard,
     IButton,
-    Keyboard,
     Button,
 } from "https://github.com/Loskir/grammy-markup/raw/main/src/index.ts"
 ```
@@ -83,9 +81,7 @@ import {
 
 ```ts
 import {
-    InlineKeyboard,
     IButton,
-    Keyboard,
     Button,
 } from "@loskir/grammy-markup"
 ```
@@ -94,16 +90,14 @@ import {
 
 ```js
 const {
-    InlineKeyboard,
     IButton,
-    Keyboard,
     Button,
 } = require("@loskir/grammy-markup")
 ```
 
 ## Examples
 
-### `InlineKeyboard` and `IButton`
+### `IButton`
 
 ```ts
 const inlineKeyboard = new InlineKeyboard([
@@ -121,7 +115,7 @@ const inlineKeyboard = new InlineKeyboard([
 // ctx.reply('inline keyboard', {reply_markup: inlineKeyboard})
 ```
 
-### `Keyboard` and `Button`
+### `Button`
 
 ```ts
 const keyboard = new Keyboard([
@@ -133,6 +127,3 @@ const keyboard = new Keyboard([
 ])
 // ctx.reply('keyboard', {reply_markup: keyboard})
 ```
-
-> `one_time`, `resize`, `input_placeholder` and `selective` attributes are not supported out of the box.
-> Please refer to [official docs](https://grammy.dev/plugins/keyboard.html#sending-a-custom-keyboard)
