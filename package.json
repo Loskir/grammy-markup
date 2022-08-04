@@ -24,7 +24,7 @@
     "url": "https://github.com/Loskir/grammy-markup/issues"
   },
   "peerDependencies": {
-    "grammy": ">1.10 <2"
+    "grammy": ">=1.10 <2"
   },
   "devDependencies": {
     "@grammyjs/types": "^2.8.2",
