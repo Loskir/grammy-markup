@@ -28,7 +28,7 @@ The declarative approach is especially useful when you want to represent dynamic
 
 ```ts
 const inlineKeyboard = new InlineKeyboard(items.map(
-  (item) => [IButton.text(item.name, item.id)
+  (item) => [IButton.text(item.name, item.id)]
 ))
 ```
 
