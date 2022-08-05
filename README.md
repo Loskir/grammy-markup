@@ -2,8 +2,6 @@
 
 This plugin provides [telegraf](https://telegraf.js.org)-like keyboard and inline keyboard builders.
 
-> Note: This plugin is not stable yet.
-
 ## Motivation
 
 The [official plugin](https://grammy.dev/plugins/keyboard.html) provides an imperative API, which I don't really like.
