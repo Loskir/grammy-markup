@@ -1,6 +1,8 @@
 import {
     type InlineKeyboardButton,
     type KeyboardButton,
+    KeyboardButtonRequestChat,
+    KeyboardButtonRequestUser,
     type LoginUrl,
 } from "./deps.deno.ts";
 
@@ -13,6 +15,48 @@ export const Button = {
      */
     text(text: string): KeyboardButton.CommonButton {
         return { text };
+    },
+    /**
+     * Adds a new request user button. When the user presses the button, a list
+     * of suitable users will be opened. Tapping on any user will send their
+     * identifier to the bot in a “user_shared” service message. Available in
+     * private chats only.
+     *
+     * @param text The text to display
+     * @param requestId A signed 32-bit identifier of the request
+     * @param options Options object for further requirements
+     */
+    requestUser(
+        text: string,
+        requestId: number,
+        options: Omit<KeyboardButtonRequestUser, "request_id"> = {},
+    ): KeyboardButton.RequestUserButton {
+        return {
+            text,
+            request_user: { request_id: requestId, ...options },
+        };
+    },
+    /**
+     * Adds a new request chat button. When the user presses the button, a list
+     * of suitable users will be opened. Tapping on a chat will send its
+     * identifier to the bot in a “chat_shared” service message. Available in
+     * private chats only.
+     *
+     * @param text The text to display
+     * @param requestId A signed 32-bit identifier of the request
+     * @param options Options object for further requirements
+     */
+    requestChat(
+        text: string,
+        requestId: number,
+        options: Omit<KeyboardButtonRequestChat, "request_id"> = {
+            chat_is_channel: false,
+        },
+    ): KeyboardButton.RequestChatButton {
+        return {
+            text,
+            request_chat: { request_id: requestId, ...options },
+        };
     },
     /**
      * Adds a new contact request button. The user's phone number will be sent
@@ -40,7 +84,10 @@ export const Button = {
      * @param text The text to display
      * @param type The type of permitted polls to create, omit if the user may send a poll of any type
      */
-    requestPoll(text: string, type?: "quiz" | "regular"): KeyboardButton.RequestPollButton {
+    requestPoll(
+        text: string,
+        type?: "quiz" | "regular",
+    ): KeyboardButton.RequestPollButton {
         return { text, request_poll: { type } };
     },
     /**
@@ -48,13 +95,13 @@ export const Button = {
      * user presses the button. The Web App will be able to send a
      * “web_app_data” service message. Available in private chats only.
      *
-     * @param text Text text to display
+     * @param text The text to display
      * @param url An HTTPS URL of a Web App to be opened with additional data
      */
     webApp(text: string, url: string): KeyboardButton.WebAppButton {
         return { text, web_app: { url } };
     },
-}
+};
 
 export const IButton = {
     /**
@@ -86,7 +133,7 @@ export const IButton = {
      * @param data The callback data to send back to your bot (default = text)
      */
     text(text: string, data = text): InlineKeyboardButton.CallbackButton {
-        return { text, callback_data: data }
+        return { text, callback_data: data };
     },
     /**
      * Adds a new web app button, confer https://core.telegram.org/bots/webapps
@@ -105,13 +152,16 @@ export const IButton = {
      * @param text The text to display
      * @param loginUrl The login URL as string or `LoginUrl` object
      */
-    login(text: string, loginUrl: string | LoginUrl): InlineKeyboardButton.LoginButton {
+    login(
+        text: string,
+        loginUrl: string | LoginUrl,
+    ): InlineKeyboardButton.LoginButton {
         return {
             text,
             login_url: typeof loginUrl === "string"
                 ? { url: loginUrl }
                 : loginUrl,
-        }
+        };
     },
     /**
      * Adds a new inline query button. Telegram clients will let the user pick a
@@ -128,7 +178,10 @@ export const IButton = {
      * @param text The text to display
      * @param query The (optional) inline query string to prefill
      */
-    switchInline(text: string, query = ""): InlineKeyboardButton.SwitchInlineButton {
+    switchInline(
+        text: string,
+        query = "",
+    ): InlineKeyboardButton.SwitchInlineButton {
         return { text, switch_inline_query: query };
     },
     /**
@@ -145,7 +198,10 @@ export const IButton = {
      * @param text The text to display
      * @param query The (optional) inline query string to prefill
      */
-    switchInlineCurrent(text: string, query = ""): InlineKeyboardButton.SwitchInlineCurrentChatButton {
+    switchInlineCurrent(
+        text: string,
+        query = "",
+    ): InlineKeyboardButton.SwitchInlineCurrentChatButton {
         return { text, switch_inline_query_current_chat: query };
     },
     /**
@@ -171,4 +227,4 @@ export const IButton = {
     pay(text: string): InlineKeyboardButton.PayButton {
         return { text, pay: true };
     },
-}
+};

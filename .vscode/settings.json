@@ -6,4 +6,7 @@
     "deno.enable": true,
     "deno.lint": true,
     "deno.config": "./deno.json",
+    "[typescript]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    }
 }

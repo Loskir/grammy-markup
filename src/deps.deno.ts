@@ -1,1 +1,1 @@
-export * from "https://esm.sh/@grammyjs/types@2.8.2";
+export * from "https://esm.sh/@grammyjs/types@2.12.0";
