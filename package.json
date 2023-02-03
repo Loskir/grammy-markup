@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "build": "deno2node tsconfig.json",
-    "publish:npm": "npm publish --access=public"
+    "publish:npm": "yarn build && npm publish --access=public"
   },
   "repository": {
     "type": "git",
