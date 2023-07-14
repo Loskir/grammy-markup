@@ -1,5 +1,7 @@
 # Markup plugin for [grammY](https://grammy.dev)
 
+## Deprecated! Declarative builders are now a part of grammY. See the [docs](https://grammy.dev/plugins/keyboard)
+
 This plugin provides [telegraf](https://telegraf.js.org)-like keyboard and inline keyboard builders.
 
 ## Motivation
